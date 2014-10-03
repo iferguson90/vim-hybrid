@@ -56,13 +56,13 @@ if !has("gui_running") && &t_Co < 256
   finish
 endif
 
-if !exists("g:hybrid_use_Xresources")
-  let g:hybrid_use_Xresources = 0
-endif
-
-if !exists("g:hybrid_use_iTerm_colors")
-  let g:hybrid_use_iTerm_colors = 0
-endif
+" if !exists("g:hybrid_use_Xresources")
+"   let g:hybrid_use_Xresources = 0
+" endif
+"
+" if !exists("g:hybrid_use_iTerm_colors")
+"   let g:hybrid_use_iTerm_colors = 0
+" endif
 
 set background=dark
 hi clear
@@ -83,8 +83,11 @@ if has("gui_running")
   let s:foreground = "#c5c8c6"
   "let s:selection  = "#373b41"
   let s:selection  = "#303232"
+  let s:visualfg   = "#73A0DE"
+  let s:visualbg   = "#314EAD"
   "let s:line       = "#282a2e"
   let s:line       = "#2d2e2f"
+  let s:linenr     = "#3a3c3c"
   "let s:comment    = "#969896"
   "let s:comment    = "#707880"
   let s:comment    = "#57585b"
@@ -105,12 +108,16 @@ if has("gui_running")
   let s:darkcyan   = "#005f5f"
   let s:darkred    = "#5f0000"
   let s:darkpurple = "#5f005f"
-  let s:todofg     = "#F5C9D7"
-  let s:todobg     = "#E01B5D"
+  " let s:todofg     = "#F5C9D7"
+  " let s:todobg     = "#E01B5D"
+  let s:todofg     = "#870000"
+  let s:todobg     = "#ff8700"
   let s:colfg      = "#73A0DE"
   let s:colbg      = "#314EAD"
-  let s:hlfg       = "#870000"
-  let s:hlbg       = "#ff8700"
+  " let s:hlfg       = "#870000"
+  " let s:hlbg       = "#ff8700"
+  let s:hlfg       = "#3F691E"
+  let s:hlbg       = "#DEE016"
 else
   let s:vmode      = "cterm"
   "let s:background = "234"
@@ -126,42 +133,47 @@ else
   let s:darkcyan   = "24"
   let s:darkred    = "52"
   let s:darkpurple = "53"
-  let s:hlfg       = "224"
-  let s:hlbg       = "161"
+  " let s:hlfg       = "224"
+  " let s:hlbg       = "161"
+  let s:hlfg       = "58"
+  let s:hlbg       = "184"
   let s:colfg      = "45"
   let s:colbg      = "26"
   let s:todofg     = "88"
   let s:todobg     = "208"
-  if g:hybrid_use_Xresources == 1
-    let s:foreground = "15"   " White
-    let s:selection  = "8"    " DarkGrey
-    let s:line       = "0"    " Black
-    let s:comment    = "7"    " LightGrey
-    let s:red        = "9"    " LightRed
-    let s:orange     = "3"    " DarkYellow
-    let s:yellow     = "11"   " LightYellow
-    let s:green      = "10"   " LightGreen
-    let s:aqua       = "14"   " LightCyan
-    let s:blue       = "12"   " LightBlue
-    let s:purple     = "13"   " LightMagenta
-  elseif g:hybrid_use_iTerm_colors == 1
-    let s:background = "NONE"
-    let s:foreground = "7"
-    let s:selection  = "0" 
-    let s:line       = "0" 
-    let s:comment    = "15" 
-    let s:red        = "1" 
-    let s:orange     = "11" 
-    let s:yellow     = "3"
-    let s:green      = "2"
-    let s:aqua       = "6"
-    let s:blue       = "4"
-    let s:purple     = "5"
-  else
+  " if g:hybrid_use_Xresources == 1
+  "   let s:foreground = "15"   " White
+  "   let s:selection  = "8"    " DarkGrey
+  "   let s:line       = "0"    " Black
+  "   let s:comment    = "7"    " LightGrey
+  "   let s:red        = "9"    " LightRed
+  "   let s:orange     = "3"    " DarkYellow
+  "   let s:yellow     = "11"   " LightYellow
+  "   let s:green      = "10"   " LightGreen
+  "   let s:aqua       = "14"   " LightCyan
+  "   let s:blue       = "12"   " LightBlue
+  "   let s:purple     = "13"   " LightMagenta
+  " elseif g:hybrid_use_iTerm_colors == 1
+  "   let s:background = "NONE"
+  "   let s:foreground = "7"
+  "   let s:selection  = "0" 
+  "   let s:line       = "0" 
+  "   let s:comment    = "15" 
+  "   let s:red        = "1" 
+  "   let s:orange     = "11" 
+  "   let s:yellow     = "3"
+  "   let s:green      = "2"
+  "   let s:aqua       = "6"
+  "   let s:blue       = "4"
+  "   let s:purple     = "5"
+  " else
     let s:foreground = "250"
     "let s:selection  = "237"
     let s:selection  = "235"
+    let s:visualfg   = "110"
+    let s:visualbg   = "25"
     let s:line       = "235"
+    let s:linenr     = "236"
     "let s:comment    = "246"
     "let s:comment    = "243"
     let s:comment    = "238"
@@ -172,7 +184,7 @@ else
     let s:aqua       = "109"
     let s:blue       = "110"
     let s:purple     = "139"
-  endif
+  " endif
 endif
 
 "}}}
@@ -195,7 +207,10 @@ exe "let s:bg_none       = ' ".s:vmode."bg=".s:none      ."'"
 exe "let s:bg_foreground = ' ".s:vmode."bg=".s:foreground."'"
 exe "let s:bg_background = ' ".s:vmode."bg=".s:background."'"
 exe "let s:bg_selection  = ' ".s:vmode."bg=".s:selection ."'"
+exe "let s:bg_visualfg   = ' ".s:vmode."bg=".s:visualfg  ."'"
+exe "let s:bg_visualbg   = ' ".s:vmode."bg=".s:visualbg  ."'"
 exe "let s:bg_line       = ' ".s:vmode."bg=".s:line      ."'"
+exe "let s:bg_linenr     = ' ".s:vmode."bg=".s:linenr    ."'"
 exe "let s:bg_comment    = ' ".s:vmode."bg=".s:comment   ."'"
 exe "let s:bg_red        = ' ".s:vmode."bg=".s:red       ."'"
 exe "let s:bg_orange     = ' ".s:vmode."bg=".s:orange    ."'"
@@ -225,7 +240,10 @@ exe "let s:fg_none       = ' ".s:vmode."fg=".s:none      ."'"
 exe "let s:fg_foreground = ' ".s:vmode."fg=".s:foreground."'"
 exe "let s:fg_background = ' ".s:vmode."fg=".s:background."'"
 exe "let s:fg_selection  = ' ".s:vmode."fg=".s:selection ."'"
+exe "let s:fg_visualfg   = ' ".s:vmode."fg=".s:visualfg  ."'"
+exe "let s:fg_visualbg   = ' ".s:vmode."fg=".s:visualbg  ."'"
 exe "let s:fg_line       = ' ".s:vmode."fg=".s:line      ."'"
+exe "let s:fg_linenr     = ' ".s:vmode."fg=".s:linenr    ."'"
 exe "let s:fg_comment    = ' ".s:vmode."fg=".s:comment   ."'"
 exe "let s:fg_red        = ' ".s:vmode."fg=".s:red       ."'"
 exe "let s:fg_orange     = ' ".s:vmode."fg=".s:orange    ."'"
@@ -268,7 +286,10 @@ if has("gui_running")
   exe "let s:sp_foreground = ' guisp=".s:foreground."'"
   exe "let s:sp_background = ' guisp=".s:background."'"
   exe "let s:sp_selection  = ' guisp=".s:selection ."'"
+  exe "let s:sp_visualfg   = ' guisp=".s:visualfg  ."'"
+  exe "let s:sp_visualbg   = ' guisp=".s:visualbg  ."'"
   exe "let s:sp_line       = ' guisp=".s:line      ."'"
+  exe "let s:sp_linenr     = ' guisp=".s:linenr    ."'"
   exe "let s:sp_comment    = ' guisp=".s:comment   ."'"
   exe "let s:sp_red        = ' guisp=".s:red       ."'"
   exe "let s:sp_orange     = ' guisp=".s:orange    ."'"
@@ -297,7 +318,10 @@ else
   let s:sp_foreground = ""
   let s:sp_background = ""
   let s:sp_selection  = ""
+  let s:sp_visualfg   = ""
+  let s:sp_visualbg   = ""
   let s:sp_line       = ""
+  let s:sp_linenr     = ""
   let s:sp_comment    = ""
   let s:sp_red        = ""
   let s:sp_orange     = ""
@@ -343,7 +367,8 @@ exe "hi! Folded"        .s:fg_comment     .s:bg_darkcolumn  .s:fmt_none
 exe "hi! FoldColumn"    .s:fg_none        .s:bg_darkcolumn  .s:fmt_none
 exe "hi! SignColumn"    .s:fg_none        .s:bg_darkcolumn  .s:fmt_none
 "		Incsearch"
-exe "hi! LineNr"        .s:fg_selection   .s:bg_none        .s:fmt_none
+"exe "hi! LineNr"        .s:fg_selection   .s:bg_none        .s:fmt_none
+exe "hi! LineNr"        .s:fg_linenr      .s:bg_none        .s:fmt_none
 " exe "hi! CursorLineNr"  .s:fg_yellow      .s:bg_none        .s:fmt_bold
 exe "hi! CursorLineNr"  .s:fg_hlbg        .s:bg_none        .s:fmt_bold
 exe "hi! MatchParen"    .s:fg_background  .s:bg_changebg    .s:fmt_none
@@ -369,13 +394,15 @@ exe "hi! TabLine"       .s:fg_foreground  .s:bg_darkcolumn  .s:fmt_revr
 "		TabLineFill"
 "		TabLineSel"
 exe "hi! Title"         .s:fg_yellow      .s:bg_none        .s:fmt_none
-exe "hi! Visual"        .s:fg_none        .s:bg_selection   .s:fmt_none
+"exe "hi! Visual"        .s:fg_none        .s:bg_selection   .s:fmt_none
+exe "hi! Visual"        .s:fg_visualfg    .s:bg_visualbg    .s:fmt_none
 "		VisualNos"
 exe "hi! WarningMsg"    .s:fg_red         .s:bg_none        .s:fmt_none
 "		WildMenu"
 
 " Use Xresources for background colour
-if has('gui_running') || (g:hybrid_use_Xresources != 1 && g:hybrid_use_iTerm_colors != 1)
+" if has('gui_running') || (g:hybrid_use_Xresources != 1 && g:hybrid_use_iTerm_colors != 1)
+if has('gui_running')
   exe "hi! Normal"        .s:fg_foreground  .s:bg_background  .s:fmt_none
 else
   exe "hi! Normal"        .s:fg_foreground  .s:bg_none        .s:fmt_none
