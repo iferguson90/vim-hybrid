@@ -137,8 +137,10 @@ else
   " let s:hlbg       = "161"
   let s:hlfg       = "58"
   let s:hlbg       = "184"
-  let s:colfg      = "45"
-  let s:colbg      = "26"
+  " let s:colfg      = "45"
+  " let s:colbg      = "26"
+  let s:colfg      = "110"
+  let s:colbg      = "25"
   let s:todofg     = "88"
   let s:todobg     = "208"
   " if g:hybrid_use_Xresources == 1
