@@ -118,6 +118,8 @@ if has("gui_running")
   let s:todobg     = "#ff8700"
   let s:colfg      = "#73A0DE"
   let s:colbg      = "#314EAD"
+  let s:parenfg    = "#B471FF"
+  let s:parenbg    = "#6B08AF"
   " let s:hlfg       = "#870000"
   " let s:hlbg       = "#ff8700"
   let s:hlfg       = "#3F691E"
@@ -149,6 +151,8 @@ else
   " let s:colbg      = "26"
   let s:colfg      = "110"
   let s:colbg      = "25"
+  let s:parenfg    = "135"
+  let s:parenbg    = "55"
   let s:todofg     = "88"
   let s:todobg     = "208"
   " if g:hybrid_use_Xresources == 1
@@ -245,6 +249,8 @@ exe "let s:bg_hlfg       = ' ".s:vmode."bg=".s:hlfg      ."'"
 exe "let s:bg_hlbg       = ' ".s:vmode."bg=".s:hlbg      ."'"
 exe "let s:bg_colfg      = ' ".s:vmode."bg=".s:colfg     ."'"
 exe "let s:bg_colbg      = ' ".s:vmode."bg=".s:colbg     ."'"
+exe "let s:bg_parenfg    = ' ".s:vmode."bg=".s:parenfg   ."'"
+exe "let s:bg_parenbg    = ' ".s:vmode."bg=".s:parenbg   ."'"
 exe "let s:bg_todofg     = ' ".s:vmode."bg=".s:todofg    ."'"
 exe "let s:bg_todobg     = ' ".s:vmode."bg=".s:todobg    ."'"
 
@@ -280,6 +286,8 @@ exe "let s:fg_hlfg       = ' ".s:vmode."fg=".s:hlfg      ."'"
 exe "let s:fg_hlbg       = ' ".s:vmode."fg=".s:hlbg      ."'"
 exe "let s:fg_colfg      = ' ".s:vmode."fg=".s:colfg     ."'"
 exe "let s:fg_colbg      = ' ".s:vmode."fg=".s:colbg     ."'"
+exe "let s:fg_parenfg    = ' ".s:vmode."fg=".s:parenfg   ."'"
+exe "let s:fg_parenbg    = ' ".s:vmode."fg=".s:parenbg   ."'"
 exe "let s:fg_todofg     = ' ".s:vmode."fg=".s:todofg    ."'"
 exe "let s:fg_todobg     = ' ".s:vmode."fg=".s:todobg    ."'"
 
@@ -327,6 +335,8 @@ if has("gui_running")
   exe "let s:sp_hlfg       = ' guisp=".s:hlfg      ."'"
   exe "let s:sp_colbg      = ' guisp=".s:colbg     ."'"
   exe "let s:sp_colfg      = ' guisp=".s:colfg     ."'"
+  exe "let s:sp_parenbg    = ' guisp=".s:parenbg   ."'"
+  exe "let s:sp_parenfg    = ' guisp=".s:parenfg   ."'"
   exe "let s:sp_todobg     = ' guisp=".s:todobg    ."'"
   exe "let s:sp_todofg     = ' guisp=".s:todofg    ."'"
 else
@@ -361,6 +371,8 @@ else
   let s:sp_hlfg       = ""
   let s:sp_colbg      = ""
   let s:sp_colfg      = ""
+  let s:sp_parenbg    = ""
+  let s:sp_parenfg    = ""
   let s:sp_todobg     = ""
   let s:sp_todofg     = ""
 endif
@@ -390,7 +402,8 @@ exe "hi! SignColumn"    .s:fg_none        .s:bg_darkcolumn  .s:fmt_none
 exe "hi! LineNr"        .s:fg_linenr      .s:bg_none        .s:fmt_none
 " exe "hi! CursorLineNr"  .s:fg_yellow      .s:bg_none        .s:fmt_bold
 exe "hi! CursorLineNr"  .s:fg_hlbg        .s:bg_none        .s:fmt_bold
-exe "hi! MatchParen"    .s:fg_background  .s:bg_changebg    .s:fmt_none
+" exe "hi! MatchParen"    .s:fg_background  .s:bg_changebg    .s:fmt_none
+exe "hi! MatchParen"    .s:fg_parenfg     .s:bg_parenbg     .s:fmt_none
 exe "hi! ModeMsg"       .s:fg_green       .s:bg_none        .s:fmt_none
 exe "hi! MoreMsg"       .s:fg_green       .s:bg_none        .s:fmt_none
 exe "hi! NonText"       .s:fg_selection   .s:bg_none        .s:fmt_none
