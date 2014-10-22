@@ -78,18 +78,13 @@ let colors_name = "hybrid"
 " ----------------------------------------------------------------------------
 if has("gui_running")
   let s:vmode      = "gui"
-  "let s:background = "#1d1f21"
   let s:background = "#252628"
   let s:foreground = "#c5c8c6"
-  "let s:selection  = "#373b41"
   let s:selection  = "#303232"
   let s:visualfg   = "#5fd7d7"
   let s:visualbg   = "#005f87"
-  "let s:line       = "#282a2e"
   let s:line       = "#2d2e2f"
   let s:linenr     = "#3a3c3c"
-  "let s:comment    = "#969896"
-  "let s:comment    = "#707880"
   let s:comment    = "#57585b"
   let s:red        = "#cc6666"
   let s:orange     = "#de935f"
@@ -104,8 +99,6 @@ if has("gui_running")
   let s:addfg      = "#d7ffaf"
   let s:rmbg       = "#cc6666"
   let s:rmfg       = "#252628"
-  " let s:changebg   = "#5F5F87"
-  " let s:changefg   = "#d7d7ff"
   let s:changebg   = "#333436"
   let s:changefg   = "NONE"
   let s:difftextbg = "#6D6C9F"
@@ -114,22 +107,18 @@ if has("gui_running")
   let s:darkcyan   = "#005f5f"
   let s:darkred    = "#5f0000"
   let s:darkpurple = "#5f005f"
-  " let s:todofg     = "#F5C9D7"
-  " let s:todobg     = "#E01B5D"
   let s:todofg     = "#870000"
   let s:todobg     = "#ff8700"
   let s:colfg      = "#73A0DE"
   let s:colbg      = "#314EAD"
   let s:parenfg    = "#B471FF"
   let s:parenbg    = "#6B08AF"
-  " let s:hlfg       = "#870000"
-  " let s:hlbg       = "#ff8700"
   let s:hlfg       = "#3F691E"
   let s:hlbg       = "#DEE016"
 else
   let s:vmode      = "cterm"
-  "let s:background = "234"
   let s:background = "NONE"
+  "let s:background = "234"
   let s:window     = "236"
   "let s:darkcolumn = "234"
   let s:darkcolumn = "NONE"
@@ -137,8 +126,6 @@ else
   let s:addfg      = "193"
   let s:rmbg       = "167"
   let s:rmfg       = "234"
-  " let s:changebg   = "60"
-  " let s:changefg   = "189"
   let s:changebg   = "236"
   let s:changefg   = "NONE"
   let s:difftextbg = "62"
@@ -147,12 +134,8 @@ else
   let s:darkcyan   = "24"
   let s:darkred    = "52"
   let s:darkpurple = "53"
-  " let s:hlfg       = "224"
-  " let s:hlbg       = "161"
   let s:hlfg       = "58"
   let s:hlbg       = "184"
-  " let s:colfg      = "45"
-  " let s:colbg      = "26"
   let s:colfg      = "110"
   let s:colbg      = "25"
   let s:parenfg    = "135"
@@ -186,14 +169,11 @@ else
   "   let s:purple     = "5"
   " else
     let s:foreground = "250"
-    "let s:selection  = "237"
     let s:selection  = "235"
     let s:visualfg   = "80"
     let s:visualbg   = "24"
     let s:line       = "235"
     let s:linenr     = "236"
-    "let s:comment    = "246"
-    "let s:comment    = "243"
     let s:comment    = "238"
     let s:red        = "167"
     let s:orange     = "173"
@@ -402,8 +382,6 @@ exe "hi! Directory"     .s:fg_blue        .s:bg_none        .s:fmt_none
 exe "hi! DiffAdd"       .s:fg_addfg       .s:bg_addbg       .s:fmt_none
 exe "hi! DiffChange"    .s:fg_changefg    .s:bg_changebg    .s:fmt_none
 exe "hi! DiffDelete"    .s:fg_rmfg        .s:bg_rmbg        .s:fmt_none
-" exe "hi! DiffDelete"    .s:fg_background  .s:bg_red         .s:fmt_none
-" exe "hi! DiffText"      .s:fg_background  .s:bg_blue        .s:fmt_none
 exe "hi! DiffText"      .s:fg_difftextfg  .s:bg_difftextbg  .s:fmt_none
 exe "hi! ErrorMsg"      .s:fg_background  .s:bg_red         .s:fmt_stnd
 exe "hi! VertSplit"     .s:fg_window      .s:bg_none        .s:fmt_none
@@ -413,9 +391,7 @@ exe "hi! SignColumn"    .s:fg_none        .s:bg_darkcolumn  .s:fmt_none
 "		Incsearch"
 "exe "hi! LineNr"        .s:fg_selection   .s:bg_none        .s:fmt_none
 exe "hi! LineNr"        .s:fg_linenr      .s:bg_none        .s:fmt_none
-" exe "hi! CursorLineNr"  .s:fg_yellow      .s:bg_none        .s:fmt_bold
 exe "hi! CursorLineNr"  .s:fg_hlbg        .s:bg_none        .s:fmt_bold
-" exe "hi! MatchParen"    .s:fg_background  .s:bg_changebg    .s:fmt_none
 exe "hi! MatchParen"    .s:fg_parenfg     .s:bg_parenbg     .s:fmt_none
 exe "hi! ModeMsg"       .s:fg_green       .s:bg_none        .s:fmt_none
 exe "hi! MoreMsg"       .s:fg_green       .s:bg_none        .s:fmt_none
@@ -425,7 +401,6 @@ exe "hi! PmenuSel"      .s:fg_foreground  .s:bg_selection   .s:fmt_revr
 "		PmenuSbar"
 "		PmenuThumb"
 exe "hi! Question"      .s:fg_green       .s:bg_none        .s:fmt_none
-" exe "hi! Search"        .s:fg_background  .s:bg_yellow      .s:fmt_none
 exe "hi! Search"        .s:fg_hlfg        .s:bg_hlbg        .s:fmt_none
 exe "hi! OverLength"    .s:fg_colfg       .s:bg_colbg       .s:fmt_none
 exe "hi! SpecialKey"    .s:fg_selection   .s:bg_none        .s:fmt_none
@@ -439,7 +414,6 @@ exe "hi! TabLine"       .s:fg_foreground  .s:bg_darkcolumn  .s:fmt_revr
 "		TabLineFill"
 "		TabLineSel"
 exe "hi! Title"         .s:fg_yellow      .s:bg_none        .s:fmt_none
-"exe "hi! Visual"        .s:fg_none        .s:bg_selection   .s:fmt_none
 exe "hi! Visual"        .s:fg_visualfg    .s:bg_visualbg    .s:fmt_none
 "		VisualNos"
 exe "hi! WarningMsg"    .s:fg_red         .s:bg_none        .s:fmt_none
@@ -500,7 +474,6 @@ exe "hi! Ignore"          .s:fg_none        .s:bg_none        .s:fmt_none
 
 exe "hi! Error"           .s:fg_red         .s:bg_darkred     .s:fmt_undr
 
-" exe "hi! Todo"            .s:fg_addfg       .s:bg_none        .s:fmt_none
 exe "hi! Todo"            .s:fg_todofg      .s:bg_todobg      .s:fmt_none
 
 " Quickfix window highlighting
